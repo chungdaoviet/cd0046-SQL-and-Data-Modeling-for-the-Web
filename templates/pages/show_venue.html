@@ -76,6 +76,17 @@
 </section>
 
 <a href="/venues/{{ venue.id }}/edit"><button class="btn btn-primary btn-lg">Edit</button></a>
+<button type="button" id="btnDelete" class="btn btn-danger btn-lg">Delete</button>
 
+<script type="application/javascript">
+    document.getElementById("btnDelete").addEventListener("click", function (e) {
+        e.preventDefault()
+        fetch("/venues/{{ venue.id }}", {
+            method: "DELETE"
+        }).then(function (e){
+            console.log(e)
+        });
+    });
+</script>
 {% endblock %}
 
